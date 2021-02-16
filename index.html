@@ -1,1 +1,182 @@
-<h1>Hello<!h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css"
+        integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ=="
+        crossorigin="anonymous" />
+
+    <title>Eucomb</title>
+
+    <style>
+        body {
+            padding-top: 40px;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 26px;
+            max-width: 88px;
+        }
+        .fields {
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-evenly;
+        }
+        table {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .is-small {
+            width: 80%;
+        }
+        .gas {
+            padding: 7px;
+            border-radius: 3px;
+            color: white;
+        }
+        .magna {
+            background-color: #00843D;
+        }
+        .premium {
+            background-color: #C8102E;
+        }
+        .diesel {
+            background-color: #1A1a1A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="EucombLogo.png" alt="Logo">
+
+        <div class="fields">
+            <div class="field">
+                <label class="label">Estación</label>
+                <div class="control">
+                    <div class="select">
+                        <select>
+                            <option>GRD</option>
+                            <option>ECO</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Fecha</label>
+                <div class="control">
+                    <input class="input" data-toggle="datepicker">
+                </div>
+            </div>
+        </div>
+
+
+        <h1 class="title is-5" style="margin-top: 26px;">Precios vs competencia</h1>
+
+        <table class="table is-hoverable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th><span class="gas magna">Magna</span></th>
+                    <th><span class="gas premium">Premium</span></th>
+                    <th><span class="gas diesel">Diesel</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="marca">GRD</td>
+                    <td>PMX</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Petrorac</td>
+                    <td>BP</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Marva</td>
+                    <td>PMX</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Colorines</td>
+                    <td>RPL</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Nogales</td>
+                    <td>RPL</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Ten Gas (Orizaba)</td>
+                    <td>PMX</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <h1 class="title is-5" style="margin-top: 26px;">Combustibles</h1> -->
+
+        <!-- <table class="table is-hoverable">
+            <thead>
+                <tr>
+                    <th>Combustibles</th>
+                    <th><span class="gas magna">Magna</span></th>
+                    <th><span class="gas premium">Premium</span></th>
+                    <th><span class="gas diesel">Diesel</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inventario</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Compras</td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+            </tbody>
+        </table> -->
+
+        <button class="button is-dark" type="submit">Guardar</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"
+        integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/i18n/datepicker.es-ES.min.js"
+        integrity="sha512-UN3v55CMLj/uaEMgUdapt4Fg/bDZ+Vz0XpF9Zg4eo5Ye+6YWh0QBhsygwf2iSjadfwWhxztVIPPKzF94fdxl+A=="
+        crossorigin="anonymous"></script>
+    <script>
+        $('[data-toggle="datepicker"]').datepicker({
+            autoPick: true,
+            autoHide: true,
+            language: 'es-ES',
+        });
+    </script>
+</body>
+</html>
