@@ -193,7 +193,7 @@
             </tbody>
         </table>
 
-        <button class="button is-dark" type="submit">Guardar</button>
+        <button id="save-button" class="button is-dark" type="submit">Guardar</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
@@ -263,6 +263,10 @@
                     $(this).val(null);
                 });
             }
+        });
+
+        $('#save-button').click(function() {
+            alert('Los datos se han guardado exitosamente.')
         });
 
     </script>
