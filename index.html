@@ -16,6 +16,8 @@
         body {
             padding-top: 40px;
             text-align: center;
+            padding-bottom: 40px;
+            background-color: #fbfbfb;
         }
         .logo {
             margin-bottom: 26px;
@@ -29,6 +31,18 @@
         table {
             margin: 0 auto;
             max-width: 600px;
+        }
+        th {
+            background-color: #e8e8e8;
+            padding-top: .8em !important;
+            padding-bottom: .8em !important;
+        }
+        td {
+            background-color: #f6f6f6;
+        }
+        .own td {
+            /* font-weight: bold; */
+            color: #3677eb;
         }
         .is-small {
             width: 80%;
@@ -58,7 +72,7 @@
                 <label class="label">Estación</label>
                 <div class="control">
                     <div class="select">
-                        <select>
+                        <select id="station-select">
                             <option>GRD</option>
                             <option>ECO</option>
                         </select>
@@ -87,54 +101,52 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="own">
                     <td class="marca">GRD</td>
                     <td>PMX</td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Petrorac</td>
                     <td>BP</td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Marva</td>
                     <td>PMX</td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Colorines</td>
                     <td>RPL</td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Nogales</td>
                     <td>RPL</td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Ten Gas (Orizaba)</td>
                     <td>PMX</td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
-                    <td><input class="input is-small" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price" type="text"></td>
                 </tr>
             </tbody>
         </table>
 
-        <!-- <h1 class="title is-5" style="margin-top: 26px;">Combustibles</h1> -->
-
-        <!-- <table class="table is-hoverable">
+        <table class="table is-hoverable">
             <thead>
                 <tr>
                     <th>Combustibles</th>
@@ -157,7 +169,29 @@
                     <td><input class="input is-small" type="text"></td>
                 </tr>
             </tbody>
-        </table> -->
+        </table>
+
+        <table class="table is-hoverable">
+            <thead>
+                <tr>
+                    <th colspan="2">Aceites</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meta</td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Vendidos</td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Por vender</td>
+                    <td><input class="input is-small" type="text"></td>
+                </tr>
+            </tbody>
+        </table>
 
         <button class="button is-dark" type="submit">Guardar</button>
     </div>
@@ -177,6 +211,60 @@
             autoHide: true,
             language: 'es-ES',
         });
+
+        var data = {
+            ECO: [
+                    19.59,
+                    19.74,
+                    20.39,
+                    19.69,
+                    19.99,
+                    20.49,
+                    19.59,
+                    19.69,
+                    20.39,
+                    19.59,
+                    19.79,
+                    20.35,
+                    19.59,
+                    19.79,
+                    null,
+                    19.40,
+                    19.55,
+                    20.29,
+                ]
+        };
+
+        $('[data-toggle="datepicker"]').change(function () {
+            var date = $(this).val();
+            var day = date.substr(0,2);
+
+            if (day < 20) {
+                $('.price').each(function () {
+                    $(this).val((Math.random() * (20.00 - 19.00) + 19.00).toFixed(2));
+                });
+            } else {
+                $('.price').each(function () {
+                    $(this).val(null);
+                });
+            }
+        });
+
+        $('#station-select').change(function () {
+            var date = $('[data-toggle="datepicker"]').val();
+            var day = date.substr(0, 2);
+
+            if (day < 20) {
+                $('.price').each(function () {
+                    $(this).val((Math.random() * (20.00 - 19.00) + 19.00).toFixed(2));
+                });
+            } else {
+                $('.price').each(function () {
+                    $(this).val(null);
+                });
+            }
+        });
+
     </script>
 </body>
 </html>
