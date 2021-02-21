@@ -104,44 +104,44 @@
                 <tr class="own">
                     <td class="marca">GRD</td>
                     <td>PMX</td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price magna-price" type="text"></td>
+                    <td><input class="input is-small price premium-price" type="text"></td>
+                    <td><input class="input is-small price diesel-price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Petrorac</td>
                     <td>BP</td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price magna-price" type="text"></td>
+                    <td><input class="input is-small price premium-price" type="text"></td>
+                    <td><input class="input is-small price diesel-price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Marva</td>
                     <td>PMX</td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price magna-price" type="text"></td>
+                    <td><input class="input is-small price premium-price" type="text"></td>
+                    <td><input class="input is-small price diesel-price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Colorines</td>
                     <td>RPL</td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price magna-price" type="text"></td>
+                    <td><input class="input is-small price premium-price" type="text"></td>
+                    <td><input class="input is-small price diesel-price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Nogales</td>
                     <td>RPL</td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price magna-price" type="text"></td>
+                    <td><input class="input is-small price premium-price" type="text"></td>
+                    <td><input class="input is-small price diesel-price" type="text"></td>
                 </tr>
                 <tr>
                     <td>Ten Gas (Orizaba)</td>
                     <td>PMX</td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
-                    <td><input class="input is-small price" type="text"></td>
+                    <td><input class="input is-small price magna-price" type="text"></td>
+                    <td><input class="input is-small price premium-price" type="text"></td>
+                    <td><input class="input is-small price diesel-price" type="text"></td>
                 </tr>
             </tbody>
         </table>
@@ -188,7 +188,7 @@
                 </tr>
                 <tr>
                     <td>Por vender</td>
-                    <td><input class="input is-small" type="text" value="356"></td>
+                    <td>358</td>
                 </tr>
             </tbody>
         </table>
@@ -218,15 +218,50 @@
             var date = $('[data-toggle="datepicker"]').val();
             var day = date.substr(0, 2);
 
+            // Magna
             if (day <= 20) {
-                $('.price').each(function () {
-                    $(this).val((Math.random() * (20.00 - 19.00) + 19.00).toFixed(2));
+                // Magna
+                var min = 25;
+                $('.magna-price').each(function () {
+                    var number = (Math.random() * (20.00 - 19.00) + 19.00).toFixed(2);
+                    if (number < min) {
+                        min = number;
+                        $('.magna-price[data-min="true"]').attr('data-min', null);
+                        $(this).attr('data-min', 'true');
+                    }
+                    $(this).val(number);
+                });
+                // Premium
+                var min = 25;
+                $('.premium-price').each(function () {
+                    var number = (Math.random() * (20.00 - 19.00) + 19.00).toFixed(2);
+                    if (number < min) {
+                        min = number;
+                        $('.premium-price[data-min="true"]').attr('data-min', null);
+                        $(this).attr('data-min', 'true');
+                    }
+                    $(this).val(number);
+                });
+                // Diesel
+                var min = 25;
+                $('.diesel-price').each(function () {
+                    var number = (Math.random() * (20.00 - 19.00) + 19.00).toFixed(2);
+                    if (number < min) {
+                        min = number;
+                        $('.diesel-price[data-min="true"]').attr('data-min', null);
+                        $(this).attr('data-min', 'true');
+                    }
+                    $(this).val(number);
                 });
             } else {
                 $('.price').each(function () {
+                    $('[data-min="true"]').attr('data-min', null);
                     $(this).val(null);
                 });
             }
+
+            $('.price').css('background-color', 'initial');
+            $('[data-min="true"]').css('background-color', '#ffff9c');
         }
 
         $('[data-toggle="datepicker"]').change(function () {
