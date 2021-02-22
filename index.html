@@ -73,8 +73,8 @@
                 <div class="control">
                     <div class="select">
                         <select id="station-select">
-                            <option>GRD</option>
-                            <option>ECO</option>
+                            <option value="GRD">GRD</option>
+                            <option value="ECO">ECO</option>
                         </select>
                     </div>
                 </div>
@@ -269,6 +269,8 @@
         });
 
         $('#station-select').change(function () {
+            var estacion = $(this).val();
+            $('.marca').text(estacion);
             fillTable();
         });
 
