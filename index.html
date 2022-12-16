@@ -43,6 +43,8 @@
             color: aliceblue;
         }
         .r-img {
+            position: relative;
+
             background-color: rgb(252, 252, 252);
             width: 100%;
             height: 37%;
@@ -52,6 +54,15 @@
             /* background-size: contain; */
             background-position: center -35px;
             background-repeat: no-repeat;
+        }
+        .r-lan {
+            position: absolute;
+            padding: 8px;
+            top: 0;
+            right: 0;
+        }
+        .r-lan-icon {
+            width: 28px;
         }
         .r-body {
             background: rgb(24,25,25);
@@ -71,20 +82,26 @@
         }
         .r-name {
             font-weight: 600;
-            font-size: 36px;
+            font-size: 32px;
             line-height: 1.8;
         }
         .r-pos {
             font-weight: 400;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.5;
             /* color: rgba(245, 245, 249, 0.8); */
         }
         .r-bio {
             text-align: left;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.5;
         }
+
+        .r-bio h2 {
+            font-weight: 600;
+            font-size: inherit
+        }
+
         .r-content {
             overflow-y: scroll;
         }
@@ -95,8 +112,8 @@
             justify-content: center;
         }
         .r-social svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
         }
         .r-social-icon {
             display: flex;
@@ -117,7 +134,7 @@
         }
         .r-row {
             padding: 16px 0;
-            font-size: 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             border-top: 1px solid #444;
@@ -150,15 +167,23 @@
     <main>
         <div class="r-card">
             <div class="r-img">
-                
+                <div class="r-lan">
+                    <img class="r-lan-icon" src="lan-es.png" alt="ES" onclick="setEs()">
+                    <img class="r-lan-icon" src="lan-en.png" alt="EN" onclick="setEn()">
+                </div>
             </div>
             <div class="r-body">
                 <div class="r-title">
                     <h1 class="r-name">Luis Arellano</h1>
-                    <h2 class="r-pos">Licenciado en Nutrición</h2>
+                    <h2 class="r-pos" id="job-title">M.S. Clinical Nutrition</h2>
                 </div>
                 <div class="r-content">
-                    <p class="r-bio">Trabajo principalmente con atletas de alto rendimiento y estoy certificado en Suplementación</p>
+                    <div class="r-bio" id="bio">
+                        <h2>Clinical nutrition</h2>
+                        <p>Diabetes, hypertension, anemia, cancer</p>
+                        <h2 style="margin-top: 12px;">Sports nutrition</h2>
+                        <p>Body recomposition, fitness, swimming, cycling, basketball</p>
+                    </div>
                     <div class="r-social">
                         <a href="https://wa.me/529842156597" target="_blank" class="r-social-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16"> <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/> </svg>
@@ -175,18 +200,45 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                             </svg>
-                            <a href="tel:+529842156597">+52 9842156597</a>
+                            <a href="tel:+529842156597" target="_blank">+52 9842156597</a>
                         </div>
                         <div class="r-row">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
                             </svg>
-                            <a href="mailto:luisarellano30@icloud.com">luisarellano@icloud.com</a>
+                            <a href="mailto:luisarellano30@icloud.com" target="_blank">luisarellano@icloud.com</a>
+                        </div>
+                        <div class="r-row">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                            </svg>
+                            <a href="" target="_blank">Condesa, Roma Norte</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <script>
+        let en = {
+            title: 'M.S. Clinical Nutrition',
+            bio: '<h2>Clinical nutrition</h2><p>Diabetes, hypertension, anemia, cancer</p><h2 style="margin-top: 12px;">Sports nutrition</h2><p>Body recomposition, fitness, swimming, cycling, basketball</p>',
+        };
+
+        let es = {
+            title: 'Maestría en Nutrición Clínica',
+            bio: '<h2>Nutrición clínica</h2><p>Diabetes, hipertensión, anemia, cáncer</p><h2 style="margin-top: 12px;">Nutrición deportiva</h2><p>Recomposición corporal, fitness, natación, ciclismo, baloncesto</p>',
+        };
+
+        function setEn() {
+            document.getElementById('job-title').innerHTML = en.title;
+            document.getElementById('bio').innerHTML = en.bio;
+        }
+
+        function setEs() {
+            document.getElementById('job-title').innerHTML = es.title;
+            document.getElementById('bio').innerHTML = es.bio;
+        }
+    </script>
 </body>
 </html>
